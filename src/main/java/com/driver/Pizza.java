@@ -10,8 +10,8 @@ public class Pizza {
     private boolean isTakeAwayAdded = false;
     private final int basePrice;
     private final int cheesePrice;
-    private int vegToppingPrice;
-    private int nonVegToppingPrice;
+    private final int vegToppingPrice;
+    private final int nonVegToppingPrice;
     private final int paperBagprice;
 
     public Pizza(Boolean isVeg){
@@ -20,15 +20,15 @@ public class Pizza {
         if(isVeg){
             price = 300;
             basePrice = 300;
-            vegToppingPrice = 70;
         }
         else{
             price = 400;
             basePrice = 400;
-            nonVegToppingPrice = 120;
         }
         cheesePrice = 80;
         paperBagprice = 20;
+        vegToppingPrice = 70;
+        nonVegToppingPrice = 120;
     }
 
     public int getPrice(){
@@ -81,6 +81,7 @@ public class Pizza {
             bill += "Paperbag Added: "+paperBagprice+"\n";
         }
         bill += "Total Price: "+price+"\n";
+
         return this.bill;
     }
 }
