@@ -45,14 +45,15 @@ public class Pizza {
 
     public void addExtraToppings(){
         // your code goes here
-        if(!isExtraToppingAdded) {
-            if (isVeg) {
-                price += vegToppingPrice;
-            } else {
-                price += nonVegToppingPrice;
-            }
+        if(!isExtraToppingAdded && isVeg) {
+            price += vegToppingPrice;
             isExtraToppingAdded = true;
         }
+        else if(!isExtraToppingAdded && !isVeg){
+            price += nonVegToppingPrice;
+            isExtraToppingAdded = true;
+        }
+
     }
 
     public void addTakeaway(){
