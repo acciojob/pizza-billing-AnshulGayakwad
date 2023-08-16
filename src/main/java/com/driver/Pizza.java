@@ -68,9 +68,9 @@ public class Pizza {
             }
         }
         if(isTakeAwayAdded){
-            bill += "Paper bag Price = 20\n";
+            bill += "Paperbag Added: 20\n";
         }
-        bill += "Total Price: "+price;
+        bill += "Total Price: "+price+"\n";
         return this.bill;
     }
 }
