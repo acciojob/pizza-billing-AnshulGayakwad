@@ -18,11 +18,11 @@ public class Pizza {
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg){
-            price = 300;
+            this.price = 300;
             basePrice = 300;
         }
         else{
-            price = 400;
+            this.price = 400;
             basePrice = 400;
         }
         cheesePrice = 80;
@@ -38,7 +38,7 @@ public class Pizza {
     public void addExtraCheese(){
         // your code goes here
         if(!isExtraCheeseAdded) {
-            price += cheesePrice;
+            this.price += cheesePrice;
             isExtraCheeseAdded = true;
         }
     }
@@ -46,11 +46,11 @@ public class Pizza {
     public void addExtraToppings(){
         // your code goes here
         if(!isExtraToppingAdded && isVeg) {
-            price += vegToppingPrice;
+            this.price += vegToppingPrice;
             isExtraToppingAdded = true;
         }
         else if(!isExtraToppingAdded && !isVeg){
-            price += nonVegToppingPrice;
+            this.price += nonVegToppingPrice;
             isExtraToppingAdded = true;
         }
 
@@ -59,7 +59,7 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         if(!isTakeAwayAdded) {
-            price += paperBagprice;
+            this.price += paperBagprice;
             isTakeAwayAdded = true;
         }
     }
@@ -70,18 +70,16 @@ public class Pizza {
         if(isExtraCheeseAdded){
             bill += "Extra Cheese Added: "+cheesePrice+"\n";
         }
-        if(isExtraToppingAdded){
-            if(isVeg) {
+        if(isExtraToppingAdded && isVeg){
                 bill += "Extra Toppings Added: " + vegToppingPrice + "\n";
-            }
-            else{
-                bill += "Extra Toppings Added: " + nonVegToppingPrice + "\n";
-            }
+        }
+        else if(isExtraToppingAdded && !isVeg){
+            bill += "Extra Toppings Added: " + nonVegToppingPrice + "\n";
         }
         if(isTakeAwayAdded){
             bill += "Paperbag Added: "+paperBagprice+"\n";
         }
-        bill += "Total Price: "+price+"\n";
+        bill += "Total Price: "+this.price+"\n";
 
         return this.bill;
     }
